@@ -1,28 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Nav v-bind:navItems="routes"/>
+    <Home/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Nav from '@/components/Nav.vue'
+import Home from '@/views/Home.vue'
+
+//css framework import
+import 'bulma/css/bulma.css'
+import routes from '@/routes.js'
+
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Nav,
+    Home
+  },
+  data () {
+    return {
+      routes: routes
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
